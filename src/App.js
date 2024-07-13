@@ -1,20 +1,18 @@
-import React from 'react';
-import TaskForm from './TaskForm';
-import TaskList from './TaskList';
-import './App.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import TaskList from "./components/TaskList";
 
-const App = ({ apiBaseUrl }) => {
+export const URL = process.env.REACT_APP_SERVER_URL;
+
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Task Manager</h1>
-      </header>
-      <main>
-        <TaskForm apiBaseUrl={apiBaseUrl} />
-        <TaskList apiBaseUrl={apiBaseUrl} />
-      </main>
+    <div className="app">
+      <div className="task-container">
+        <TaskList />
+      </div>
+      <ToastContainer />
     </div>
   );
-};
+}
 
 export default App;
